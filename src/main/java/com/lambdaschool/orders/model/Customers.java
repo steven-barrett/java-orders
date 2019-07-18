@@ -1,6 +1,8 @@
 package com.lambdaschool.orders.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "customers")
@@ -23,9 +25,13 @@ public class Customers
     private double outstandingamt;
     private String phone;
 
-    @OneToMany
+    @ManyToOne
     @Column(nullable = false)
     private long agentcode;
+    private Agents agents;
+
+    @OneToMany
+    private List<Orders> orders = new ArrayList<>();
 
     public Customers()
     {

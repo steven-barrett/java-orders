@@ -17,7 +17,7 @@ public class Orders
     @Column(nullable = false)
     @OneToMany
     private long custcode;
-
+    private Customers customers;
     private String orderdescription;
 
     public Orders()

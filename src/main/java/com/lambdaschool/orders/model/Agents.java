@@ -1,6 +1,9 @@
 package com.lambdaschool.orders.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "agents")
@@ -16,6 +19,9 @@ public class Agents
     private double commission;
     private String phone;
     private String country;
+
+    @OneToMany
+    private List<Customers> customers = new ArrayList<>();
 
     public Agents()
     {
